@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>Newsletter Subscribe</name>
+	<version>2x</version>
+	<code>newsletter_subscribe</code>
+	<author>Extensions Bazaar</author>
+	<file name="catalog/controller/common/footer.php">
+		<operation>
+			<search position="after"><![CDATA[$this->load->language('common/footer');]]></search>
+			<add><![CDATA[
+		if($this->config->get('awesomenewsletter_status') && $this->config->get('awesomenewsletter_footer_status')) {
+			$data['newsletters'] = $this->load->controller('module/awesomenewsletter/footer');	
+		}else{
+			$data['newsletters']  = ''; 
+		}
+		
+		if($this->config->get('awesomenewsletter_status') && $this->config->get('awesomenewsletter_popup_status')) {
+			$data['newsletters_popup'] = $this->load->controller('common/awesomenewsletter_popup');				
+		}else{
+			$data['newsletters_popup']  = ''; 
+		}
+			]]></add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search position="before"><![CDATA[<footer>]]></search>
+			<add><![CDATA[
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/awesomenewsletter.css">
+<?php echo (isset($newsletters) ? $newsletters : ''); ?>
+<?php echo (isset($newsletters_popup) ? $newsletters_popup : ''); ?>
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/model/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA['p.sort_order']]></search>
+			<add><![CDATA[			'p.date_added',]]></add>
+		</operation>
+	</file>
+</modification>

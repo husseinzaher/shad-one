@@ -1,0 +1,29 @@
+footer {
+	margin-top:0;
+}
+#newsletterModule-footer h3{
+	
+	margin:5px;
+}
+#newsletterModule-footer{
+	background: #eeeeee;
+}
+#newsletterModule-footer{
+	padding:15px 0;
+}
+
+#newsletterModal.modal{
+	z-index: 9999;
+}
+
+#newsletterModal .closepopup{
+	position: absolute;
+	right: -18px;
+	top: -18px;
+	opacity:1;
+	z-index:99999;
+}
+
+#newsletterModal .form-group{
+	margin-bottom:0 !important;
+}

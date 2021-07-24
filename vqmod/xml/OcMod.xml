@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>OCMOD Edit Suite</name>
+	<version>1.1</version>
+	<author>Christopher Wall</author>
+	<code>hb_ocmod_edit_suite</code>
+	<description>Gracefully edit and build your own OCMODs.</description>
+
+	<file path="admin/view/template/extension/modification.tpl">
+		<operation>
+			<notes>Adds an edit button to each mod</notes>
+			<search index="" regex="false" trim="false"><![CDATA[                      <td class="text-right"><?php if ($modification['link']) { ?>]]></search>
+			<add offset="0" trim="false" position="replace"><![CDATA[                      <td class="text-right">
+                        <a href="<?php echo $ocmodeditsuite . "&hb_mod=" . $modification['modification_id']; ?>" data-toggle="tooltip" title="Edit" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+
+<?php if ($modification['link']) { ?>]]></add>
+		</operation>
+	
+		<operation>
+			<notes></notes>
+			<search index="" regex="false" trim="false"><![CDATA[      <div class="pull-right"><a href="<?php echo $refresh; ?>" data-toggle="tooltip" title="<?php echo $button_refresh; ?>" class="btn btn-info"><i class="fa fa-refresh"></i></a> <a href="<?php echo $clear; ?>" data-toggle="tooltip" title="<?php echo $button_clear; ?>" class="btn btn-warning"><i class="fa fa-eraser"></i></a>]]></search>
+			<add offset="0" trim="false" position="replace"><![CDATA[      <div class="pull-right">
+<a href="<?php echo $ocmodeditsuite; ?>" data-toggle="tooltip" title="Add" class="btn btn-primary"><i class="fa fa-plus"></i></a> 
+<a href="<?php echo $refresh; ?>" data-toggle="tooltip" title="<?php echo $button_refresh; ?>" class="btn btn-info"><i class="fa fa-refresh"></i></a> 
+<a href="<?php echo $clear; ?>" data-toggle="tooltip" title="<?php echo $button_clear; ?>" class="btn btn-warning"><i class="fa fa-eraser"></i></a>
+]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/controller/extension/modification.php">
+		<operation>
+			<notes>add links to the modification controller</notes>
+			<search index="" regex="false" trim="false"><![CDATA[		$data['delete'] = $this->url->link('extension/modification/delete', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></search>
+			<add offset="0" trim="false" position="after"><![CDATA[		$data['ocmodeditsuite'] = $this->url->link('extension/ocmodeditsuite', 'token=' . $this->session->data['token'] . $url, 'SSL');]]></add>
+		</operation>
+	</file>
+
+</modification>

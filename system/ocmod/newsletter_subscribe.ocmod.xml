@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<name>Newsletter Subscribe</name>
+	<version>v3.1</version>
+	<code>newsletter_subscribe</code>
+	<author>Extensions Bazaar</author>
+	<file path="catalog/model/account/customer.php">
+		<operation>
+			<search><![CDATA[$customer_id = $this->db->getLastId();]]></search>
+			<add position="after"><![CDATA[
+		if($this->config->get('awesomenewsletter_status')){
+			if(!empty($data['newsletter'])){
+				$exist_sub = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "awesomenewsletter WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($data['email'])) . "'");
+				if(!$exist_sub->row['total']){
+					$data['name'] =  $data['firstname'].' '.$data['lastname'];
+					$this->db->query("INSERT INTO ".DB_PREFIX."awesomenewsletter SET email = '" . $this->db->escape($data['email']) . "',date_added = NOW(),date_modified = NOW(),ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "',name = '" . $this->db->escape($data['name']) . "'");
+				}
+			}
+		}
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[public function editNewsletter($newsletter) {]]></search>
+			<add position="after"><![CDATA[
+		if($this->config->get('awesomenewsletter_status')){
+				$customer_info = $this->getCustomer($this->customer->getId());
+				if($customer_info){
+					$exist_sub = $this->db->query("SELECT COUNT(*) AS total FROM " . DB_PREFIX . "awesomenewsletter WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($customer_info['email'])) . "'");
+					if(!$exist_sub->row['total']){
+						$data['name'] =  $customer_info['firstname'].' '.$customer_info['lastname'];
+						$this->db->query("INSERT INTO ".DB_PREFIX."awesomenewsletter SET email = '" . $this->db->escape($customer_info['email']) . "',date_added = NOW(),date_modified = NOW(),ip = '" . $this->db->escape($this->request->server['REMOTE_ADDR']) . "',name = '" . $this->db->escape($data['name']) . "'");
+					}
+				}
+			}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/controller/common/footer.php">
+		<operation>
+			<search><![CDATA[$this->load->language('common/footer');]]></search>
+			<add position="after"><![CDATA[
+		if($this->config->get('awesomenewsletter_status') && $this->config->get('awesomenewsletter_footer_status')) {
+			$data['newsletters'] = $this->load->controller('module/awesomenewsletter/footer');	
+		}else{
+			$data['newsletters']  = ''; 
+		}
+		
+		if($this->config->get('awesomenewsletter_status') && $this->config->get('awesomenewsletter_popup_status')) {
+			$data['newsletters_popup'] = $this->load->controller('common/awesomenewsletter_popup');				
+		}else{
+			$data['newsletters_popup']  = ''; 
+		}
+			]]></add>
+		</operation>
+	</file>
+	<file path="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search><![CDATA[<footer>]]></search>
+			<add position="before"><![CDATA[
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/default/stylesheet/awesomenewsletter.css">
+<?php echo (isset($newsletters) ? $newsletters : ''); ?>
+<?php echo (isset($newsletters_popup) ? $newsletters_popup : ''); ?>
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/model/catalog/product.php">
+		<operation>
+			<search><![CDATA['p.sort_order']]></search>
+			<add position="before"><![CDATA[			'p.date_added',]]></add>
+		</operation>
+	</file>
+</modification>

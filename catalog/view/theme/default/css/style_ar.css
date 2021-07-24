@@ -1,0 +1,113 @@
+
+@font-face {
+    font-family: 'B-L';
+    src: url('../fonts/B-L.ttf');
+}
+
+@font-face {
+    font-family: 'B-R';
+    src: url('../fonts/B-R.ttf');
+}
+
+@font-face {
+    font-family: 'B-SB';
+    src: url('../fonts/B-SB.ttf');
+}
+@font-face {
+    font-family: 'B-B';
+    src: url('../fonts/B-B.ttf');
+}
+
+@font-face {
+    font-family: 'nagham';
+    src: url('../fonts/ae_Nagham.ttf');
+}
+body{
+      font-family: 'B-R' !important;  
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'B-B';
+}
+.top-info ul li span:last-child {
+    font-size: 15px;
+    display: inline-block;
+    padding: 0 9px;
+    position: relative;
+    top: -3px;
+}
+header .menu-header .menu-left li.cart-con {
+    border-right: 1px solid #bc9a73;
+    border-left: 0px;
+    padding-right: 25px;
+    padding-left: 0px;
+}
+.subscribe form button,
+.subscribe form .btn{
+    left: 0;
+    right: auto;
+}
+.f-social, .f-pay {
+    text-align: right;
+}
+.lang-currency li a, .lang-currency .btn-link {
+    font-weight: 500;
+}
+.menu-mid .dropdown-menu, .lang-currency .dropdown-menu {
+    left: 0 !important;
+    right: auto !important;
+    width: auto;
+}
+#cart .dropdown-menu .table > tbody > tr > td{
+    text-align: right;
+}
+.menu-item-has-children > a::after, .menu-mid .dropdown a::after {
+    margin-left: 0px;
+    margin-right: 5px;
+}
+#search {
+
+    float: left;
+}
+/**************/
+#newsletter_footer section.subscribe .se-head h2 {
+    text-align: right;
+}
+#newsletter_footer section.subscribe form input {
+    text-align: right;
+    padding-left: 100px;
+    padding-right: 0;
+}
+#newsletter_footer section.subscribe form a {
+    font-weight: normal;
+    left: 0;
+    right: auto;
+}
+.u_info ul li a {
+    font-weight: normal;
+}
+/**************/
+@media (max-width: 991px){
+    .top-header .col-md-4 {
+        left: 0;
+        right: auto;
+    }
+    .f-pay {
+        text-align: center;
+    }
+    .menu-mid .dropdown-menu, .lang-currency .dropdown-menu {
+        left: 0 !important;
+        right: auto !important;
+        width: auto;
+    }
+}
+
+@media (max-width: 767px){
+    #menu .navbar-header .btn-navbar {
+        float: right  !important;
+    }
+}

@@ -1,0 +1,87 @@
+---------- Date: 2019-04-06 13:26:27 ~ IP : 197.61.44.71 ----------
+REQUEST URI : /ar/%D9%86%D8%B3%D8%A7%D8%A1/%D8%AA%D8%B4%D9%83%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%86%D8%B3%D8%A7%D8%A1-2019
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/a_vqmod_d_compatibilty_fix_230.xml
+   id        : d_compatibilty_fix_230
+   version   : 1.0.0
+   vqmver    : 2.1.1
+   author    : Dreamvention.com
+VQModObject::parseMods - Could not resolve path for [admin/controller/event/compatibility.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/feed.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/fraud.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/module.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/payment.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/shipping.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/theme.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/total.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/event/compatibility.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/library/cart/user.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/config/catalog.php] (SKIPPED)
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/a_vqmod_d_quickcheckout.xml
+   id        : AJAX QUICK CHECKOUT V6 BY DREAMVENTION
+   version   : 2.0.0.0
+   vqmver    : 2.2.1
+   author    : dreamvention.com
+VQModObject::parseMods - Could not resolve path for [system/library/cart/tax.php] (SKIPPED)
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/ultimatemegafilter.xml
+   id        : UltimateMegaFilter
+   version   : 1.0.x
+   vqmver    : 2.4.1
+   author    : Atizva
+VQModObject::parseMods - Could not resolve path for [admin/language/en-gb/catalog/product.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2019-04-06 13:26:42 ~ IP : 197.61.44.71 ----------
+REQUEST URI : /ar/%D9%86%D8%B3%D8%A7%D8%A1/%D8%AA%D8%B4%D9%83%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%86%D8%B3%D8%A7%D8%A1-2019
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/a_vqmod_d_compatibilty_fix_230.xml
+   id        : d_compatibilty_fix_230
+   version   : 1.0.0
+   vqmver    : 2.1.1
+   author    : Dreamvention.com
+VQModObject::parseMods - Could not resolve path for [admin/controller/event/compatibility.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/feed.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/fraud.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/module.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/payment.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/shipping.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/theme.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [admin/controller/extension/extension/total.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/event/compatibility.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/library/cart/user.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [system/config/catalog.php] (SKIPPED)
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/a_vqmod_d_quickcheckout.xml
+   id        : AJAX QUICK CHECKOUT V6 BY DREAMVENTION
+   version   : 2.0.0.0
+   vqmver    : 2.2.1
+   author    : dreamvention.com
+VQModObject::parseMods - Could not resolve path for [system/library/cart/tax.php] (SKIPPED)
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/ultimatemegafilter.xml
+   id        : UltimateMegaFilter
+   version   : 1.0.x
+   vqmver    : 2.4.1
+   author    : Atizva
+VQModObject::parseMods - Could not resolve path for [admin/language/en-gb/catalog/product.php] (SKIPPED)
+----------------------------------------------------------------------
+
+
+---------- Date: 2019-04-06 13:28:20 ~ IP : 197.61.44.71 ----------
+REQUEST URI : /ar/%D9%86%D8%B3%D8%A7%D8%A1/%D8%AA%D8%B4%D9%83%D9%8A%D9%84%D8%A9-%D8%A7%D9%84%D9%86%D8%B3%D8%A7%D8%A1-2019/8522121test.html
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/option_image_swap.xml
+   id        : Option Image Swap
+   version   : 3.0
+   vqmver    : 2.5.1
+   author    : Raul Marosan
+
+File Name    : catalog/controller/product/product.php(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): 'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
+
+----------------------------------------------------------------------
+
+

@@ -1,0 +1,349 @@
+@media (max-width: 1325px) { 
+
+
+}
+@media (max-width: 1200px) {
+
+}
+@media (max-width: 1024px){
+
+
+
+}
+@media (max-width: 991px) {
+    .top-info{
+        display: none !important;
+    }
+    .top-header .col-md-4{
+        position: absolute !important;
+        top: -90px;
+        right: 0;
+    }
+    header .col-md-1 {
+        margin-bottom: 10px;
+    }
+    header {
+        padding: 10px 0 0;
+    }
+    .slider-home, .slider-home .container {
+        min-height: auto;
+    }
+    .se-head h2{
+        font-size: 30px;
+        padding-bottom: 10px;
+    }
+    .se-head h2 img{
+        width: 28px;
+        height: 30px;
+    }
+    .subscribe .se-head h2 {
+        font-size: 36px;;
+    }
+    .subscribe .se-head h3 {
+        font-size: 24px;
+    }
+    .subscribe form button {
+        font-size: 14px;
+    }
+     #content .col-sm-6:nth-child(2n+1) {
+        clear: initial;
+    }
+    .review-block-con{
+        display: block;
+    }
+    .review-block-con h3 {
+        font-size: 22px;
+        margin: 10px 0;
+    }
+    .review-block {
+        padding: 20px;
+        text-align: center;
+    }
+    .review-block-con p {
+        font-size: 17px;
+        line-height: 25px;
+        width: 100%;
+    }
+    .swap-on-hover {
+      height: 300px;
+    }
+    .video-block{
+        height: 400px;
+        width: 100%;
+    }
+    .footer-top .col-sm-4,
+    .imp-l.follow-us{
+        width: 100%;
+    }
+    .imp-l{
+        margin-top: 30px;
+    }
+    .footer-top h3 {
+        font-size: 22px;
+        margin: 0 0 20px 0;
+        padding-bottom: 8px;
+    }
+    .footer-top ul li, .footer-top ul li a {
+        font-size: 16px;
+    }
+    .f-pay,
+    .comp-rights{
+        text-align: center !important;
+    }
+    .rights, .comp-rights {
+        padding: 10px 0 0px;
+    }
+    .navbar-header .visible-xs{
+        display: none !important;
+    }
+    .menu-mid .dropdown-menu, .lang-currency .dropdown-menu {
+        right: 0 ;
+        left: auto ;
+        width: auto;
+    }
+    header .menu-header .menu-left li.account a span {
+        display: none !important;
+    }
+    header .menu-header .menu-left ul li {
+        margin: 0 5px !important;
+    }
+    header .menu-header .menu-left li.cart-con {
+        padding-right:  0 !important;
+        padding-left: 0px !important;
+    }
+    .mobile-menu {
+    padding: 5px 0;
+    }
+    /**************************************************/
+    #search {
+     float: unset;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px){
+    #content .col-sm-2:nth-child(6n+1), #content .col-sm-3:nth-child(4n+1), #content .col-sm-4:nth-child(3n+1), #content .col-sm-6:nth-child(2n+1) {
+        clear: inherit !important;
+    }
+}
+@media (max-width: 768px) { 
+
+}
+@media (max-width: 767px) {
+    #menu {
+        border-radius: 4px;
+        width: auto;
+        background: transparent;
+        border: 0;
+        min-height: auto;
+        display: inline-block;
+        position: absolute;
+        top: 29px;
+    }
+    header .menu-header .menu-mid ul.navbar-nav li {
+        display: block !important;
+    }
+    .navbar-collapse.collapse {
+        width: 100%;
+        float: right;
+        display: none !important;
+    }
+    
+    .navbar-collapse.collapse.in {
+        display: block !important;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        left: auto;
+        right: 0;
+        margin-bottom: -58px;
+        background-color: #1a1a1a;
+        color: #fff;
+        border-radius: 5px;
+        padding: 0;
+        float: unset;
+        height: auto;
+        width: 100%;
+    }
+    header .menu-header .menu-mid {
+        max-width: 60px;
+        width: 60px;
+        display: inline;
+    }
+    .menu-item-has-children .sub-menu, 
+        header .menu-header .menu-mid ul.navbar-nav .dropdown .dropdown-menu {
+        position: relative;
+    }
+    .navbar-collapse.collapse.in .navbar-nav{
+       display: block;  
+    }
+    header .menu-header .menu-mid ul li a, header .menu-header .menu-mid ul li a {
+        font-size: 17px;
+    }
+    #menu div.dropdown-menu {
+        display: none;
+    }
+    #menu .dropdown-inner a, #menu a.see-all {
+        color: #fff;
+    }
+    /**************************************************/
+    header {
+        
+    }
+    #menu .navbar-header .btn-navbar {
+        font-size: 15px;
+        font-stretch: expanded;
+        color: #FFF;
+        padding: 6px 12px;
+        float: left;
+        background-color: #bc9a73 !important;
+        background-image: unset !important;
+        background-repeat: repeat-x;
+        border-color: #bc9a73 !important;
+    }
+    #menu .navbar-header .btn-navbar .fa {
+        font-size: 18px;
+        position: relative;
+        top: 2px;
+    }
+
+    .subscribe .se-head h2 {
+        font-size: 26px;
+    }
+    .subscribe .se-head h3 {
+        font-size: 18px;
+        margin: 10px 0;
+        line-height: 26px;
+    }
+    .subscribe form button {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+    .se-head {
+        margin-bottom: 22px;
+    }
+    .se-head h2 {
+        font-size: 22px;
+        padding-bottom: 10px;
+    }
+    .review {
+        padding: 40px 0 20px;
+    }
+    .h-video .se-head h2 {
+        font-size: 20px;
+        line-height: 30px;
+        padding: 12px 10px;
+    }
+    .h-video {
+        padding: 40px 0;
+    }
+    .f-logo img {
+        height: auto;
+        width: 125px;
+    }
+    .imp-l {
+        width: 100%;
+    }
+    .footer-top h3 {
+        font-size: 20px;
+        margin: 0 0 18px 0;
+        padding-bottom: 8px;
+    }
+    .footer-top {
+        padding: 40px 0 0;
+    }
+    .se-footer {
+        padding-top: 0;
+        margin-top: 20px;
+    }
+    .best-selling {
+        padding: 40px 0;
+    }
+    .b-s-img{
+       height: 300px; 
+    }
+    .subscribe form input{
+        padding: 0 10px;
+    }
+    .logo img{
+        width: 90px;
+    }
+    .top-header .col-md-4 {
+        top: -77px !important;
+    }
+    .subscribe form {
+        width: 100%;
+    }
+    /*****************************************/
+    .subscribe form button,
+    .subscribe form .btn{
+        font-size: 14px;
+        padding: 0 10px;
+height: 50px;
+    margin-top: 5px;
+    }
+    .subscribe form input {
+        font-size: 15px;
+    }
+    .subscribe .newsletter {
+    padding: 0;
+    }
+
+#best_selling .owl-controls .owl-buttons .owl-next , #best_selling .owl-controls .owl-buttons .owl-prev {
+        top: 30%;
+}
+
+}
+
+@media (max-width: 650px) { 
+
+
+
+
+
+}
+@media (max-width: 500px) {
+    .video-block {
+        height: 350px;
+    }
+    .review-block-con h3 {
+        font-size: 20px;
+        margin: 8px 0;
+    }
+    .subscribe .se-head h2 {
+        font-size: 24px;
+    }
+    
+    .b-s-con .b-add {
+        font-size: 17px;
+    }
+    .b-s-con .b-add svg:not(:root){
+        width: 40px !important;
+        height: 30px !important;
+    }
+    .b-s-con .b-add svg image{
+        width: 30px !important;
+        height: 25px !important;
+    }
+    .b-s-con .b-add span {
+        top: -9px;
+    }
+    .p-price{
+        margin: 10px 0;
+        font-size: 22px;
+    }
+    .b-s-con h3 a{
+        font-size: 22px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 380px) {
+
+
+}
+
+@media (max-width: 330px) {
+
+
+}

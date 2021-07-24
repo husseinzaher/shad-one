@@ -1,0 +1,15 @@
+---------- Date: 2020-10-02 12:41:09 ~ IP : 31.167.84.115 ----------
+REQUEST URI : /women/852212777test.html
+MOD DETAILS:
+   modFile   : /home/shad1clothing/public_html/vqmod/xml/option_image_swap.xml
+   id        : Option Image Swap
+   version   : 3.0
+   vqmver    : 2.5.1
+   author    : Raul Marosan
+
+File Name    : catalog/controller/product/product.php(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): 'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
+
+----------------------------------------------------------------------
+
+

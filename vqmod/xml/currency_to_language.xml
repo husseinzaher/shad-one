@@ -1,0 +1,187 @@
+<modification>
+	<id>Currency to Language</id>
+	<version>1.0</version>
+	<vqmver>2.5.1</vqmver>
+	<author>yodapt</author>
+
+	<!-- CATALOG CONTROLLER -->
+	
+	<file name="catalog/controller/common/language.php">
+		<operation>
+			<search position="after"><![CDATA[
+			if (isset($this->request->post['code'])) {
+			]]></search>
+			<add><![CDATA[
+			
+			$currency_code = $this->config->get('c2l_'.$this->request->post['code']) !== NULL ? $this->config->get('c2l_'.$this->request->post['code']) : false;
+			
+			if ($currency_code)
+			{	
+				$this->currency->set($currency_code);
+
+				unset($this->session->data['shipping_method']);
+				unset($this->session->data['shipping_methods']);
+			}
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- ADMIN FORM -->
+	
+	<file name="admin/view/template/localisation/language_form.tpl">
+		<operation>
+			<search position="before" index="2"><![CDATA[
+			<div class="form-group">
+			]]></search>
+			<add><![CDATA[
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="input-currency"><span data-toggle="tooltip" title="<?php echo $help_currency; ?>"><?php echo $entry_currency; ?></span></label>
+				<div class="col-sm-10">
+				  <select name="currency" id="input-currency" class="form-control">
+					<option value=""><?php echo $text_currency; ?></option>
+					<?php if ($currencies) { foreach ($currencies as $e) { ?>
+					<option value="<?php echo $e['code']; ?>" <?php if ($e['code'] == $currency) echo 'selected="selected"'; ?>><?php echo $e['title']; ?></option>
+					<?php } } ?>
+				  </select>
+				</div>
+			</div>
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- ADMIN LANGUAGE -->
+	
+	<file name="admin/language/english/localisation/language.php">
+		<operation>
+			<search position="after"><![CDATA[
+			$_['text_edit']         = 'Edit Language';
+			]]></search>
+			<add><![CDATA[
+			$_['text_currency']     = 'N/A';
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$_['help_status']       = 'Hide/Show it in language dropdown';
+			]]></search>
+			<add><![CDATA[
+			$_['help_currency']     = 'Default currency for this language';
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$_['entry_sort_order']  = 'Sort Order';
+			]]></search>
+			<add><![CDATA[
+			$_['entry_currency']    = 'Default Currency';
+			]]></add>
+		</operation>
+	</file>
+	
+	<!-- ADMIN CONTROLLER -->
+	
+	<file name="admin/controller/localisation/language.php">
+		<operation>
+			<search position="after"><![CDATA[
+			$data['text_disabled'] = $this->language->get('text_disabled');
+			]]></search>
+			<add><![CDATA[
+			$data['text_currency'] = $this->language->get('text_currency');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$data['entry_status'] = $this->language->get('entry_status');
+			]]></search>
+			<add><![CDATA[
+			$data['entry_currency'] = $this->language->get('entry_currency');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$data['help_status'] = $this->language->get('help_status');
+			]]></search>
+			<add><![CDATA[
+			$data['help_currency'] = $this->language->get('help_currency');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[
+			if (isset($this->request->post['status'])) {
+			]]></search>
+			<add><![CDATA[
+			if (isset($this->request->post['currency'])) {
+				$data['currency'] = $this->request->post['currency'];
+			} elseif (!empty($language_info)) {
+				$data['currency'] = $language_info['currency'];
+			} else {
+				$data['currency'] = '';
+			}
+			
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$language_info = $this->model_localisation_language->getLanguage($this->request->get['language_id']);
+			]]></search>
+			<add><![CDATA[
+			$language_info['currency'] = $this->config->get('c2l_'.$language_info['code']) !== NULL ? $this->config->get('c2l_'.$language_info['code']) : '';
+			]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[
+			$data['header'] = $this->load->controller('common/header');
+			]]></search>
+			<add><![CDATA[
+			$this->load->model('localisation/currency');
+			
+			$data['currencies'] = array();
+
+			$results = $this->model_localisation_currency->getCurrencies();
+
+			foreach ($results as $result) {
+				if ($result['status']) {
+					$data['currencies'][] = array(
+						'title'        => $result['title'],
+						'code'         => $result['code'],
+						'symbol_left'  => $result['symbol_left'],
+						'symbol_right' => $result['symbol_right']
+					);
+				}
+			}
+			
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$this->model_localisation_language->addLanguage($this->request->post);
+			]]></search>
+			<add><![CDATA[
+			
+			if ($this->request->post['currency'] != '')
+			{
+				$this->load->model('setting/setting');
+				$settings = $this->model_setting_setting->getSetting('c2l');
+				$settings['c2l_'.$this->request->post['code']] = $this->request->post['currency'];
+				$this->model_setting_setting->editSetting('c2l', $settings);
+			}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+			$this->model_localisation_language->editLanguage($this->request->get['language_id'], $this->request->post);
+			]]></search>
+			<add><![CDATA[
+			
+			if ($this->request->post['currency'] != '')
+			{
+				$this->load->model('setting/setting');
+				$settings = $this->model_setting_setting->getSetting('c2l');
+				$settings['c2l_'.$this->request->post['code']] = $this->request->post['currency'];
+				$this->model_setting_setting->editSetting('c2l', $settings);
+			}
+			]]></add>
+		</operation>
+	</file>
+	
+</modification>

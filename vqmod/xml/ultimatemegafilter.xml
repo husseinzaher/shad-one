@@ -1,0 +1,140 @@
+<modification>
+	<id>UltimateMegaFilter</id>
+	<version>1.0.x</version>
+	<name>UltimateMegaFilter</name>
+	<vqmver>2.4.1</vqmver>
+	<author>Atizva</author>
+	<file name="catalog/view/theme/*/template/product/category.tpl">
+		<operation>
+			<search position="before"><![CDATA[foreach ($products as $product) {]]></search>
+			<add><![CDATA[<div class="umf-product-container">]]></add>
+		</operation>
+		<operation>
+			<search position="before" offset="2"><![CDATA[<?php echo $pagination; ?>]]></search>
+			<add><![CDATA[</div>]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[<?php echo $pagination; ?>]]></search>
+			<add><![CDATA[<div class="text-left pagination_container"><?php echo $pagination; ?></div>]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[<?php echo $results; ?>]]></search>
+			<add><![CDATA[<div class="text-right pagination_result"><?php echo $results; ?></div>]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/catalog/product_form.tpl">
+		<operation error="skip">
+			<search position="replace"><![CDATA[<label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>]]></search>
+			<add><![CDATA[
+        <label class="col-sm-2 control-label"><?php echo $entry_payment_method; ?></label>
+          <div class="col-sm-10">
+            <select name="product_payment" class="form-control">
+          	<option value=""><?php echo $text_none; ?></option>
+          	<?php if($payment_methods){ 
+          	foreach($payment_methods as $code => $payment_method){
+          		$selected = ($product_payment == $code) ? 'selected="selected"' : '';
+          		echo "<option value='$code' $selected>$payment_method</option>";
+          	}
+          	}?>
+          </select>           
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label"><?php echo $entry_shipping_method; ?></label>
+          <div class="col-sm-10">
+            <select name="product_shipping" class="form-control">
+	          	<option value=""><?php echo $text_none; ?></option>
+	          	<?php if($shipping_methods){ 
+		          	foreach($shipping_methods as $code => $shipping_method){
+		          		$selected = ($product_shipping == $code) ? 'selected="selected"' : '';
+		          		echo "<option value='$code' $selected>$shipping_method</option>";
+		          	}
+	          	}?>
+	          </select>
+          </div>
+        </div>
+        <div class="form-group">
+        <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
+			]]></add>
+		</operation>	
+	</file>
+	<file name="admin/controller/catalog/product.php">
+		<operation error="log">
+			<search position="before"><![CDATA[$data['entry_shipping'] = $this->language->get('entry_shipping');]]></search>
+			<add><![CDATA[
+				$data['entry_payment_method'] = $this->language->get('entry_payment_method');
+				$data['entry_shipping_method'] = $this->language->get('entry_shipping_method');
+			]]></add>
+		</operation>
+		<operation error="log">
+			<search position="before"><![CDATA[if (isset($this->request->post['shipping'])) {]]></search>
+			<add><![CDATA[
+				if (isset($this->request->post['product_payment'])) {
+					$data['product_payment'] = $this->request->post['product_payment'];
+				} elseif (!empty($product_info)) {
+					$data['product_payment'] = $product_info['product_payment'];
+				} else {
+					$data['product_payment'] = '';
+				}
+				if (isset($this->request->post['product_shipping'])) {
+					$data['product_shipping'] = $this->request->post['product_shipping'];
+				} elseif (!empty($product_info)) {
+					$data['product_shipping'] = $product_info['product_shipping'];
+				} else {
+					$data['product_shipping'] = '';
+				}
+				//Payment Methods
+				$this->load->model('extension/extension');
+				$data['payment_methods'] = array();
+				$extensions = $this->model_extension_extension->getInstalled('payment');
+				foreach ($extensions as $code) {
+					if ($this->config->get($code . '_status')) {
+						$this->language->load('payment/' . $code);
+						$data['payment_methods'][$code] = $this->language->get('heading_title');
+					}
+				}
+				//Shipping Methods
+				$data['shipping_methods'] = array();
+				$extensions = $this->model_extension_extension->getInstalled('shipping');	
+				foreach ($extensions as $code) {
+					if ($this->config->get($code . '_status')) {
+						$this->language->load('shipping/' . $code);
+						$data['shipping_methods'][$code] = $this->language->get('heading_title');
+					}
+				}
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/english/catalog/product.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$_['entry_shipping']         = 'Requires Shipping';]]></search>
+			<add><![CDATA[
+				$_['entry_payment_method']         = 'Payment Method:'; 
+				$_['entry_shipping_method']        = 'Shipping Method:'; 
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/en-gb/catalog/product.php">
+		<operation error="log">
+			<search position="after"><![CDATA[$_['entry_shipping']         = 'Requires Shipping';]]></search>
+			<add><![CDATA[
+				$_['entry_payment_method']         = 'Payment Method:'; 
+				$_['entry_shipping_method']        = 'Shipping Method:'; 
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/model/catalog/product.php">
+		<operation>
+			<search position="before"><![CDATA[if (isset($data['image'])) {]]></search>
+			<add><![CDATA[
+				if(isset($data['product_payment'])){
+					$this->db->query("UPDATE " . DB_PREFIX . "product SET product_payment = '" . $this->db->escape($data['product_payment']) . "' WHERE product_id = '" . (int)$product_id . "'");
+				}
+
+				if(isset($data['product_shipping'])){
+					$this->db->query("UPDATE " . DB_PREFIX . "product SET product_shipping = '" . $this->db->escape($data['product_shipping']) . "' WHERE product_id = '" . (int)$product_id . "'");
+				}
+			]]></add>
+		</operation>
+	</file>
+</modification>

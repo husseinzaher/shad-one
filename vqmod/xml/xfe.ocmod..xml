@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>X-fee Opencart Module</name>
+	<code>xfee</code>
+    <version>2.0</version>
+    <author>OpenCartMart</author>
+    <link>http://www.opencartmart.com</link>
+<!--	<file path="catalog/model/checkout/order.php">                
+		<operation>
+			<search><![CDATA[ foreach ($order_total_query->rows as $order_total) ]]></search>		        
+			<add position="after"><![CDATA[
+		       if(strpos($order_total['code'],'xfee')!==false) continue;
+			]]></add>
+		</operation>
+	</file>
+	<file path="admin/view/template/sale/order_form.tpl">
+		<operation>
+			<search><![CDATA[ api/cart/products ]]></search>
+			<add position="replace"><![CDATA[api/cart/products&order_id=<?php echo $order_id; ?>&customer_group_id=' + $('select[name=\'customer_group_id\']').val()+']]></add>
+		</operation>
+	</file>	-->
+</modification>

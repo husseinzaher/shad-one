@@ -53,6 +53,9 @@
     margin-right: -15px !important;
     margin-left: 0 !important;
 }
+#d_quickcheckout #shipping_method .radio label .price, #d_quickcheckout #payment_method .radio label .price {
+    float: left !important;
+}
 </style>
 <?php } else { ?>
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen" />
@@ -65,6 +68,9 @@
 }
 #cart .sh_cart{
     margin-top: -10px;
+}
+#d_quickcheckout #shipping_method .radio label .price, #d_quickcheckout #payment_method .radio label .price {
+    float: right !important;
 }
 </style>
 <?php } ?>
@@ -209,9 +215,6 @@ a.removequickview.red {
 #d_quickcheckout .panel-title {
     color: #000 !important;
 }
-#d_quickcheckout #shipping_method .radio label .price, #d_quickcheckout #payment_method .radio label .price {
-    float: left !important;
-}
 #newsletter_footer section.subscribe form input {
     color: #fff;
 }
@@ -223,6 +226,10 @@ a.removequickview.red {
     left: 22px !important;
     font-size: 13px !important;
 }
+}
+#d_quickcheckout #payment_address input[type=radio], #d_quickcheckout #payment_address input[type=checkbox] ,
+#d_quickcheckout #shipping_address input[type=radio], #d_quickcheckout #shipping_address input[type=checkbox] {
+    margin: 4px 5px;
 }
 </style>
 <?php foreach ($styles as $style) { ?>

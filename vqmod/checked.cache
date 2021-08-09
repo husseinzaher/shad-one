@@ -505,3 +505,4 @@ system/modification/system/engine/action.php
 system/modification/system/engine/loader.php
 system/modification/system/library/config.php
 system/modification/system/library/language.php
+system/library/tax.php

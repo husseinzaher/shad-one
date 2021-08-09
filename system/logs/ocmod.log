@@ -67443,3 +67443,1321 @@ CODE: if (isset($data['image'])) {
 LINE: 18
 LINE: 150
 ----------------------------------------------------------------
+2021-08-08 22:09:55 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+LINE: 94
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+NOT FOUND!
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 97
+FILE: system/library/tax.php
+CODE: final class Tax {
+LINE: 7
+----------------------------------------------------------------
+MOD: d_opencart_patch
+CODE: public function controller($route, $args = array()) {
+LINE: 47
+CODE: $controller = new $class($this->registry);
+NOT FOUND!
+CODE: public function controller($route, $data = array()) {
+NOT FOUND!
+CODE: $file = DIR_LANGUAGE . $this->default . '/' . $filename . '.php';
+LINE: 24
+CODE: $parts = explode('/', str_replace('../', '', (string)$route));
+LINE: 32
+FILE: admin/controller/extension/module.php
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/install');
+LINE: 41
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/uninstall');
+LINE: 74
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/module/' . $value . '.php')) {
+LINE: 151
+CODE: $data['extensions'][] = array(
+LINE: 187
+CODE: $this->load->language('module/' . $extension);
+LINE: 178
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 258
+FILE: admin/controller/extension/shipping.php
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/shipping/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 144
+CODE: $this->load->language('shipping/' . $extension);
+LINE: 148
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 206
+FILE: admin/controller/extension/payment.php
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/install');
+LINE: 35
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/payment/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 150
+CODE: $this->load->language('payment/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 213
+FILE: admin/controller/extension/total.php
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/install');
+LINE: 36
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/total/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 142
+CODE: $this->load->language('total/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 204
+FILE: admin/controller/extension/feed.php
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/feed/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('feed/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/fraud.php
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/fraud/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('fraud/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/error/permission.php
+CODE: $ignore = array(
+LINE: 48
+FILE: catalog/controller/checkout/shipping_method.php
+CODE: $quote = $this->{'model_shipping_' . $result['code']}->getQuote($this->session->data['shipping_address']);
+LINE: 17
+CODE: $this->load->model('shipping/' . $result['code']);
+LINE: 15
+FILE: catalog/controller/checkout/payment_method.php
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+LINE: 27
+CODE: $this->load->model('total/' . $result['code']);
+LINE: 25
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data);
+NOT FOUND!
+FILE: admin/controller/design/layout.php
+CODE: $this->load->language('module/' . $code);
+LINE: 378
+FILE: admin/controller/user/user_permission.php
+CODE: $files = glob(DIR_APPLICATION . 'controller/*/*.php');
+LINE: 382
+CODE: $permission = end($part) . '/' . basename($file, '.php');
+LINE: 393
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $file = DIR_TEMPLATE . $template;
+LINE: 75
+CODE: $output = $template->render($route . '.tpl'
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Local copy OCMOD by iSenseLabs
+FILE: admin/controller/extension/installer.php
+CODE: 'url'  => str_replace('&amp;', '&', $this->url->link('extension/installer/ftp', 'token=' . $this->session->data['token'],
+LINE: 132
+CODE: public function unzip() {
+LINE: 293
+----------------------------------------------------------------
+MOD: Maintenance Mode Warning
+FILE: admin/controller/common/header.php
+CODE: $data['logged'] = true;
+LINE: 60
+FILE: admin/controller/common/column_left.php
+CODE: public function index() {
+LINE: 25
+FILE: admin/view/template/common/header.tpl
+CODE: <ul class="nav pull-right">
+LINE: 122
+FILE: admin/language/english/common/header.php
+CODE: <?php
+LINE: 10
+----------------------------------------------------------------
+MOD: Quick View Popup
+FILE: catalog/view/theme/default/template/extension/module/smsa_track.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/account.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/affiliate.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_button.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_login.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_pay.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter - Copy.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter_footer.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/banner.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/bannergroup.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/bestseller.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/carousel.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/category.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/d_quickcheckout.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ebay_listing.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/featured.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/filter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/google_hangouts.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/html.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/information.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/latest.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/layerslider.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/multimatemegafilter_products.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/pp_button.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/pp_login.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/sizechart.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/slideshow.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/smsa_track.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/special.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/store.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter_container.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter_products.tpl
+CODE: <div class="caption">
+LINE: 35
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafiltertop.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/category.tpl
+CODE: <div class="caption">
+LINE: 102
+CODE: <div class="product-thumb">
+LINE: 70
+FILE: catalog/view/theme/default/template/product/compare.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/manufacturer_info.tpl
+CODE: <div class="caption">
+LINE: 95
+CODE: <div class="product-thumb">
+LINE: 63
+FILE: catalog/view/theme/default/template/product/manufacturer_list.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/product.tpl
+CODE: <div class="caption">
+LINE: 519
+CODE: <div class="product-thumb">
+LINE: 487
+FILE: catalog/view/theme/default/template/product/review.tpl
+CODE: <div class="caption">
+NOT FOUND!
+CODE: <div class="product-thumb">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/search.tpl
+CODE: <div class="caption">
+LINE: 152
+CODE: <div class="product-thumb">
+LINE: 120
+FILE: catalog/view/theme/default/template/product/special.tpl
+CODE: <div class="caption">
+LINE: 94
+CODE: <div class="product-thumb">
+LINE: 63
+FILE: catalog/view/theme/default/template/common/footer.tpl
+CODE: </body>
+LINE: 556
+CODE: <td class="text-right"><?php echo $column_action; ?></td>
+NOT FOUND!
+----------------------------------------------------------------
+MOD: SMSA Shipping API
+FILE: admin/controller/sale/order.php
+CODE: $data['shipping'] = $this->url->link('sale/order/shipping', 'token=' . $this->session->data['token'] . '&order_id=' . (int)$this->request->get['order_id'], true);
+NOT FOUND!
+FILE: admin/view/template/sale/order_info.tpl
+CODE: <div id="history"></div>
+LINE: 349
+CODE: <?php echo $footer; ?>
+LINE: 668
+FILE: catalog/model/account/order.php
+CODE: public function getTotalOrderVouchersByOrderId($order_id) {
+LINE: 171
+FILE: catalog/controller/account/order.php
+CODE: $voucher_total = $this->model_account_order->getTotalOrderVouchersByOrderId($result['order_id']);
+LINE: 69
+CODE: 'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
+NOT FOUND!
+FILE: catalog/view/theme/default/template/account/order_list.tpl
+CODE: <td class="text-right"><a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
+NOT FOUND!
+----------------------------------------------------------------
+MOD: TMD SMS OTP Verification Module
+FILE: admin/controller/common/menu.php
+CODE: $data['order_recurring'] = $this->url->link('sale/recurring', 'token=' . $this->session->data['token'], 'SSL');
+LINE: 188
+FILE: admin/language/arabic/common/menu.php
+CODE: // Text
+LINE: 10
+FILE: admin/language/english/common/menu.php
+CODE: // Text
+LINE: 7
+FILE: admin/view/template/common/menu.tpl
+CODE: <li id="extension"><a class="parent"><i class="fa fa-puzzle-piece fa-fw"></i> <span><?php echo $text_extension; ?></span></a>
+LINE: 31
+FILE: catalog/model/checkout/order.php
+CODE: if (!$order_info['order_status_id'] && $order_status_id) {
+LINE: 492
+CODE: if ($order_info['order_status_id'] && $order_status_id && $notify) {
+LINE: 993
+FILE: catalog/model/affiliate/affiliate.php
+CODE: $affiliate_id = $this->db->getLastId();
+LINE: 71
+FILE: catalog/model/account/customer.php
+CODE: $address_id = $this->db->getLastId();
+LINE: 130
+CODE: public function deleteLoginAttempts($email) {
+LINE: 303
+FILE: catalog/controller/account/forgotten.php
+CODE: $code = token(40);
+NOT FOUND!
+FILE: catalog/controller/affiliate/forgotten.php
+CODE: $password = token(10);
+NOT FOUND!
+FILE: catalog/controller/common/header.php
+CODE: // Menu
+LINE: 124
+FILE: catalog/controller/account/login.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 174
+FILE: catalog/view/theme/default/template/account/login.tpl
+CODE: <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
+LINE: 57
+CODE: <?php echo $footer; ?>
+LINE: 82
+----------------------------------------------------------------
+MOD: UltimateMegaFilter
+CODE: foreach ($products as $product) {
+LINE: 69
+CODE: <?php echo $pagination; ?>
+LINE: 150
+CODE: <?php echo $pagination; ?>
+LINE: 150
+CODE: <?php echo $results; ?>
+LINE: 151
+FILE: admin/view/template/catalog/product_form.tpl
+CODE: <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
+LINE: 240
+FILE: admin/controller/catalog/product.php
+CODE: $data['entry_shipping'] = $this->language->get('entry_shipping');
+LINE: 559
+CODE: if (isset($this->request->post['shipping'])) {
+LINE: 886
+FILE: admin/language/english/catalog/product.php
+CODE: $_['entry_shipping']         = 'Requires Shipping';
+LINE: 45
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['image'])) {
+LINE: 18
+LINE: 150
+----------------------------------------------------------------
+2021-08-09 13:52:29 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: d_opencart_patch
+CODE: public function controller($route, $args = array()) {
+LINE: 47
+CODE: $controller = new $class($this->registry);
+NOT FOUND!
+CODE: public function controller($route, $data = array()) {
+NOT FOUND!
+CODE: $controller = new $class($this->registry);
+NOT FOUND!
+CODE: $file = DIR_LANGUAGE . $this->default . '/' . $filename . '.php';
+LINE: 24
+CODE: $parts = explode('/', str_replace('../', '', (string)$route));
+LINE: 32
+FILE: admin/controller/extension/module.php
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/install');
+LINE: 41
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/uninstall');
+LINE: 74
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/module/' . $value . '.php')) {
+LINE: 151
+CODE: $data['extensions'][] = array(
+LINE: 187
+CODE: $this->load->language('module/' . $extension);
+LINE: 178
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 258
+FILE: admin/controller/extension/shipping.php
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/shipping/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 144
+CODE: $this->load->language('shipping/' . $extension);
+LINE: 148
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 206
+FILE: admin/controller/extension/payment.php
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/install');
+LINE: 35
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/payment/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 150
+CODE: $this->load->language('payment/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 213
+FILE: admin/controller/extension/total.php
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/install');
+LINE: 36
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/total/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 142
+CODE: $this->load->language('total/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 204
+FILE: admin/controller/extension/feed.php
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/feed/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('feed/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/fraud.php
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/fraud/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('fraud/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/error/permission.php
+CODE: $ignore = array(
+LINE: 48
+FILE: catalog/controller/checkout/shipping_method.php
+CODE: $quote = $this->{'model_shipping_' . $result['code']}->getQuote($this->session->data['shipping_address']);
+LINE: 17
+CODE: $this->load->model('shipping/' . $result['code']);
+LINE: 15
+FILE: catalog/controller/checkout/payment_method.php
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+LINE: 27
+CODE: $this->load->model('total/' . $result['code']);
+LINE: 25
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data);
+NOT FOUND!
+CODE: $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
+LINE: 53
+CODE: $this->load->model('payment/' . $result['code']);
+LINE: 51
+CODE: if ($recurring) {
+LINE: 65
+FILE: admin/controller/design/layout.php
+CODE: $this->load->language('module/' . $code);
+LINE: 378
+FILE: admin/controller/user/user_permission.php
+CODE: $files = glob(DIR_APPLICATION . 'controller/*/*.php');
+LINE: 382
+CODE: $permission = end($part) . '/' . basename($file, '.php');
+LINE: 393
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $file = DIR_TEMPLATE . $template;
+LINE: 75
+CODE: $output = $template->render($route . '.tpl'
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Local copy OCMOD by iSenseLabs
+FILE: admin/controller/extension/installer.php
+CODE: 'url'  => str_replace('&amp;', '&', $this->url->link('extension/installer/ftp', 'token=' . $this->session->data['token'],
+LINE: 132
+CODE: public function unzip() {
+LINE: 293
+----------------------------------------------------------------
+MOD: Maintenance Mode Warning
+FILE: admin/controller/common/header.php
+CODE: $data['logged'] = true;
+LINE: 60
+FILE: admin/controller/common/column_left.php
+CODE: public function index() {
+LINE: 25
+FILE: admin/view/template/common/header.tpl
+CODE: <ul class="nav pull-right">
+LINE: 122
+FILE: admin/language/english/common/header.php
+CODE: <?php
+LINE: 10
+----------------------------------------------------------------
+MOD: Quick View Popup
+FILE: catalog/view/theme/default/template/extension/module/smsa_track.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/account.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/affiliate.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_button.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_login.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_pay.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter - Copy.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter_footer.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/banner.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/bannergroup.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/bestseller.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/carousel.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/category.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/d_quickcheckout.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ebay_listing.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/featured.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/filter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/google_hangouts.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/html.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/information.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/latest.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/layerslider.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/multimatemegafilter_products.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/pp_button.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/pp_login.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/sizechart.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/slideshow.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/smsa_track.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/special.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/store.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter_container.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter_products.tpl
+CODE: <div class="caption">
+LINE: 35
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafiltertop.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/category.tpl
+CODE: <div class="caption">
+LINE: 102
+CODE: <div class="product-thumb">
+LINE: 70
+FILE: catalog/view/theme/default/template/product/compare.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/manufacturer_info.tpl
+CODE: <div class="caption">
+LINE: 95
+CODE: <div class="product-thumb">
+LINE: 63
+FILE: catalog/view/theme/default/template/product/manufacturer_list.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/product.tpl
+CODE: <div class="caption">
+LINE: 519
+CODE: <div class="product-thumb">
+LINE: 487
+FILE: catalog/view/theme/default/template/product/review.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/search.tpl
+CODE: <div class="caption">
+LINE: 152
+CODE: <div class="product-thumb">
+LINE: 120
+FILE: catalog/view/theme/default/template/product/special.tpl
+CODE: <div class="caption">
+LINE: 94
+CODE: <div class="product-thumb">
+LINE: 63
+FILE: catalog/view/theme/default/template/common/footer.tpl
+CODE: </body>
+LINE: 556
+CODE: <td class="text-right"><?php echo $column_action; ?></td>
+NOT FOUND!
+----------------------------------------------------------------
+MOD: SMSA Shipping API
+FILE: admin/controller/sale/order.php
+CODE: $data['shipping'] = $this->url->link('sale/order/shipping', 'token=' . $this->session->data['token'] . '&order_id=' . (int)$this->request->get['order_id'], true);
+NOT FOUND!
+FILE: admin/view/template/sale/order_info.tpl
+CODE: <div id="history"></div>
+LINE: 349
+CODE: <?php echo $footer; ?>
+LINE: 668
+FILE: catalog/model/account/order.php
+CODE: public function getTotalOrderVouchersByOrderId($order_id) {
+LINE: 171
+FILE: catalog/controller/account/order.php
+CODE: $voucher_total = $this->model_account_order->getTotalOrderVouchersByOrderId($result['order_id']);
+LINE: 69
+CODE: 'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
+NOT FOUND!
+FILE: catalog/view/theme/default/template/account/order_list.tpl
+CODE: <td class="text-right"><a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
+NOT FOUND!
+----------------------------------------------------------------
+MOD: TMD SMS OTP Verification Module
+FILE: admin/controller/common/menu.php
+CODE: $data['order_recurring'] = $this->url->link('sale/recurring', 'token=' . $this->session->data['token'], 'SSL');
+LINE: 188
+FILE: admin/language/arabic/common/menu.php
+CODE: // Text
+LINE: 10
+FILE: admin/language/english/common/menu.php
+CODE: // Text
+LINE: 7
+FILE: admin/view/template/common/menu.tpl
+CODE: <li id="extension"><a class="parent"><i class="fa fa-puzzle-piece fa-fw"></i> <span><?php echo $text_extension; ?></span></a>
+LINE: 31
+FILE: catalog/model/checkout/order.php
+CODE: if (!$order_info['order_status_id'] && $order_status_id) {
+LINE: 492
+CODE: if ($order_info['order_status_id'] && $order_status_id && $notify) {
+LINE: 993
+FILE: catalog/model/affiliate/affiliate.php
+CODE: $affiliate_id = $this->db->getLastId();
+LINE: 71
+FILE: catalog/model/account/customer.php
+CODE: $address_id = $this->db->getLastId();
+LINE: 130
+CODE: public function deleteLoginAttempts($email) {
+LINE: 303
+FILE: catalog/controller/account/forgotten.php
+CODE: $code = token(40);
+NOT FOUND!
+FILE: catalog/controller/affiliate/forgotten.php
+CODE: $password = token(10);
+NOT FOUND!
+FILE: catalog/controller/common/header.php
+CODE: // Menu
+LINE: 124
+FILE: catalog/controller/account/login.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 174
+FILE: catalog/view/theme/default/template/account/login.tpl
+CODE: <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
+LINE: 57
+CODE: <?php echo $footer; ?>
+LINE: 82
+----------------------------------------------------------------
+MOD: UltimateMegaFilter
+CODE: foreach ($products as $product) {
+LINE: 69
+CODE: <?php echo $pagination; ?>
+LINE: 150
+CODE: <?php echo $pagination; ?>
+LINE: 150
+CODE: <?php echo $results; ?>
+LINE: 151
+FILE: admin/view/template/catalog/product_form.tpl
+CODE: <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
+LINE: 240
+FILE: admin/controller/catalog/product.php
+CODE: $data['entry_shipping'] = $this->language->get('entry_shipping');
+LINE: 559
+CODE: if (isset($this->request->post['shipping'])) {
+LINE: 886
+FILE: admin/language/english/catalog/product.php
+CODE: $_['entry_shipping']         = 'Requires Shipping';
+LINE: 45
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['image'])) {
+LINE: 18
+LINE: 150
+----------------------------------------------------------------
+2021-08-09 13:54:55 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 58
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 37
+LINE: 54
+LINE: 65
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 21
+LINE: 27
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+LINE: 94
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+NOT FOUND!
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 97
+FILE: system/library/tax.php
+CODE: final class Tax {
+LINE: 7
+----------------------------------------------------------------
+MOD: d_opencart_patch
+CODE: public function controller($route, $args = array()) {
+LINE: 47
+CODE: $controller = new $class($this->registry);
+NOT FOUND!
+CODE: public function controller($route, $data = array()) {
+NOT FOUND!
+CODE: $controller = new $class($this->registry);
+NOT FOUND!
+CODE: $file = DIR_LANGUAGE . $this->default . '/' . $filename . '.php';
+LINE: 24
+CODE: $parts = explode('/', str_replace('../', '', (string)$route));
+LINE: 32
+FILE: admin/controller/extension/module.php
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/install');
+LINE: 41
+CODE: $this->load->controller('module/' . $this->request->get['extension'] . '/uninstall');
+LINE: 74
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/module/' . $value . '.php')) {
+LINE: 151
+CODE: $data['extensions'][] = array(
+LINE: 187
+CODE: $this->load->language('module/' . $extension);
+LINE: 178
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 258
+FILE: admin/controller/extension/shipping.php
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('shipping/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/shipping/' . $value . '.php')) {
+LINE: 123
+CODE: $data['extensions'][] = array(
+LINE: 144
+CODE: $this->load->language('shipping/' . $extension);
+LINE: 148
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 206
+FILE: admin/controller/extension/payment.php
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/install');
+LINE: 35
+CODE: $this->load->controller('payment/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/payment/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 150
+CODE: $this->load->language('payment/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 213
+FILE: admin/controller/extension/total.php
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/install');
+LINE: 36
+CODE: $this->load->controller('total/' . $this->request->get['extension'] . '/uninstall');
+LINE: 64
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/total/' . $value . '.php')) {
+LINE: 121
+CODE: $data['extensions'][] = array(
+LINE: 142
+CODE: $this->load->language('total/' . $extension);
+LINE: 146
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 204
+FILE: admin/controller/extension/feed.php
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('feed/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/feed/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('feed/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/extension/fraud.php
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/install');
+LINE: 37
+CODE: $this->load->controller('fraud/' . $this->request->get['extension'] . '/uninstall');
+LINE: 66
+CODE: if (!file_exists(DIR_APPLICATION . 'controller/fraud/' . $value . '.php')) {
+LINE: 118
+CODE: $data['extensions'][] = array(
+LINE: 139
+CODE: $this->load->language('fraud/' . $extension);
+LINE: 143
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 199
+FILE: admin/controller/error/permission.php
+CODE: $ignore = array(
+LINE: 48
+FILE: catalog/controller/checkout/shipping_method.php
+CODE: $quote = $this->{'model_shipping_' . $result['code']}->getQuote($this->session->data['shipping_address']);
+LINE: 17
+CODE: $this->load->model('shipping/' . $result['code']);
+LINE: 15
+FILE: catalog/controller/checkout/payment_method.php
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data, $total, $taxes);
+LINE: 27
+CODE: $this->load->model('total/' . $result['code']);
+LINE: 25
+CODE: $this->{'model_total_' . $result['code']}->getTotal($total_data);
+NOT FOUND!
+CODE: $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
+LINE: 53
+CODE: $this->load->model('payment/' . $result['code']);
+LINE: 51
+CODE: if ($recurring) {
+LINE: 65
+FILE: admin/controller/design/layout.php
+CODE: $this->load->language('module/' . $code);
+LINE: 378
+FILE: admin/controller/user/user_permission.php
+CODE: $files = glob(DIR_APPLICATION . 'controller/*/*.php');
+LINE: 382
+CODE: $permission = end($part) . '/' . basename($file, '.php');
+LINE: 393
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $file = DIR_TEMPLATE . $template;
+LINE: 75
+CODE: $output = $template->render($route . '.tpl'
+NOT FOUND!
+----------------------------------------------------------------
+MOD: Local copy OCMOD by iSenseLabs
+FILE: admin/controller/extension/installer.php
+CODE: 'url'  => str_replace('&amp;', '&', $this->url->link('extension/installer/ftp', 'token=' . $this->session->data['token'],
+LINE: 132
+CODE: public function unzip() {
+LINE: 293
+----------------------------------------------------------------
+MOD: Maintenance Mode Warning
+FILE: admin/controller/common/header.php
+CODE: $data['logged'] = true;
+LINE: 60
+FILE: admin/controller/common/column_left.php
+CODE: public function index() {
+LINE: 25
+FILE: admin/view/template/common/header.tpl
+CODE: <ul class="nav pull-right">
+LINE: 122
+FILE: admin/language/english/common/header.php
+CODE: <?php
+LINE: 10
+----------------------------------------------------------------
+MOD: Quick View Popup
+FILE: catalog/view/theme/default/template/extension/module/smsa_track.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/account.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/affiliate.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_button.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_login.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/amazon_pay.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter - Copy.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/awesomenewsletter_footer.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/banner.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/bannergroup.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/bestseller.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/carousel.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/category.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/d_quickcheckout.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ebay_listing.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/featured.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/filter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/google_hangouts.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/html.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/information.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/latest.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/layerslider.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/multimatemegafilter_products.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/pp_button.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/pp_login.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/sizechart.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/slideshow.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/smsa_track.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/special.tpl
+CODE: <div class="caption">
+LINE: 36
+CODE: <div class="product-thumb transition">
+LINE: 4
+FILE: catalog/view/theme/default/template/module/store.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter_container.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafilter_products.tpl
+CODE: <div class="caption">
+LINE: 35
+CODE: <div class="product-thumb transition">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/module/ultimatemegafiltertop.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/category.tpl
+CODE: <div class="caption">
+LINE: 102
+CODE: <div class="product-thumb">
+LINE: 70
+FILE: catalog/view/theme/default/template/product/compare.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/manufacturer_info.tpl
+CODE: <div class="caption">
+LINE: 95
+CODE: <div class="product-thumb">
+LINE: 63
+FILE: catalog/view/theme/default/template/product/manufacturer_list.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/product.tpl
+CODE: <div class="caption">
+LINE: 519
+CODE: <div class="product-thumb">
+LINE: 487
+FILE: catalog/view/theme/default/template/product/review.tpl
+CODE: <div class="caption">
+NOT FOUND!
+FILE: catalog/view/theme/default/template/product/search.tpl
+CODE: <div class="caption">
+LINE: 152
+CODE: <div class="product-thumb">
+LINE: 120
+FILE: catalog/view/theme/default/template/product/special.tpl
+CODE: <div class="caption">
+LINE: 94
+CODE: <div class="product-thumb">
+LINE: 63
+FILE: catalog/view/theme/default/template/common/footer.tpl
+CODE: </body>
+LINE: 556
+CODE: <td class="text-right"><?php echo $column_action; ?></td>
+NOT FOUND!
+----------------------------------------------------------------
+MOD: SMSA Shipping API
+FILE: admin/controller/sale/order.php
+CODE: $data['shipping'] = $this->url->link('sale/order/shipping', 'token=' . $this->session->data['token'] . '&order_id=' . (int)$this->request->get['order_id'], true);
+NOT FOUND!
+FILE: admin/view/template/sale/order_info.tpl
+CODE: <div id="history"></div>
+LINE: 349
+CODE: <?php echo $footer; ?>
+LINE: 668
+FILE: catalog/model/account/order.php
+CODE: public function getTotalOrderVouchersByOrderId($order_id) {
+LINE: 171
+FILE: catalog/controller/account/order.php
+CODE: $voucher_total = $this->model_account_order->getTotalOrderVouchersByOrderId($result['order_id']);
+LINE: 69
+CODE: 'view'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], true),
+NOT FOUND!
+FILE: catalog/view/theme/default/template/account/order_list.tpl
+CODE: <td class="text-right"><a href="<?php echo $order['view']; ?>" data-toggle="tooltip" title="<?php echo $button_view; ?>" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
+NOT FOUND!
+----------------------------------------------------------------
+MOD: TMD SMS OTP Verification Module
+FILE: admin/controller/common/menu.php
+CODE: $data['order_recurring'] = $this->url->link('sale/recurring', 'token=' . $this->session->data['token'], 'SSL');
+LINE: 188
+FILE: admin/language/arabic/common/menu.php
+CODE: // Text
+LINE: 10
+FILE: admin/language/english/common/menu.php
+CODE: // Text
+LINE: 7
+FILE: admin/view/template/common/menu.tpl
+CODE: <li id="extension"><a class="parent"><i class="fa fa-puzzle-piece fa-fw"></i> <span><?php echo $text_extension; ?></span></a>
+LINE: 31
+FILE: catalog/model/checkout/order.php
+CODE: if (!$order_info['order_status_id'] && $order_status_id) {
+LINE: 492
+CODE: if ($order_info['order_status_id'] && $order_status_id && $notify) {
+LINE: 993
+FILE: catalog/model/affiliate/affiliate.php
+CODE: $affiliate_id = $this->db->getLastId();
+LINE: 71
+FILE: catalog/model/account/customer.php
+CODE: $address_id = $this->db->getLastId();
+LINE: 130
+CODE: public function deleteLoginAttempts($email) {
+LINE: 303
+FILE: catalog/controller/account/forgotten.php
+CODE: $code = token(40);
+NOT FOUND!
+FILE: catalog/controller/affiliate/forgotten.php
+CODE: $password = token(10);
+NOT FOUND!
+FILE: catalog/controller/common/header.php
+CODE: // Menu
+LINE: 124
+FILE: catalog/controller/account/login.php
+CODE: $data['column_left'] = $this->load->controller('common/column_left');
+LINE: 174
+FILE: catalog/view/theme/default/template/account/login.tpl
+CODE: <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
+LINE: 57
+CODE: <?php echo $footer; ?>
+LINE: 82
+----------------------------------------------------------------
+MOD: UltimateMegaFilter
+CODE: foreach ($products as $product) {
+LINE: 69
+CODE: <?php echo $pagination; ?>
+LINE: 150
+CODE: <?php echo $pagination; ?>
+LINE: 150
+CODE: <?php echo $results; ?>
+LINE: 151
+FILE: admin/view/template/catalog/product_form.tpl
+CODE: <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
+LINE: 240
+FILE: admin/controller/catalog/product.php
+CODE: $data['entry_shipping'] = $this->language->get('entry_shipping');
+LINE: 559
+CODE: if (isset($this->request->post['shipping'])) {
+LINE: 886
+FILE: admin/language/english/catalog/product.php
+CODE: $_['entry_shipping']         = 'Requires Shipping';
+LINE: 45
+FILE: admin/model/catalog/product.php
+CODE: if (isset($data['image'])) {
+LINE: 18
+LINE: 150
+----------------------------------------------------------------

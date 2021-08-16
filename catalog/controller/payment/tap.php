@@ -1,5 +1,5 @@
 <?php
-class ControllerExtensionPaymentTap extends Controller {
+class ControllerPaymentTap extends Controller {
 	public function index() {
 		$data['button_confirm'] = $this->language->get('button_confirm');
 
@@ -28,18 +28,18 @@ class ControllerExtensionPaymentTap extends Controller {
 		$data['cstmobile'] = $order_info['telephone'];
 		$data['cntry'] = $order_info['payment_iso_code_2'];
 
-		$data['returnurl'] = $this->url->link('extension/payment/tap/callback', 'hashcd=' . md5($order_info['order_id'] . $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false) . $order_info['currency_code'] . $this->config->get('tap_password')));
+		$data['returnurl'] = $this->url->link('payment/tap/callback', 'hashcd=' . md5($order_info['order_id'] . $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false) . $order_info['currency_code'] . $this->config->get('tap_password')));
 
 		/*if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/tap.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/payment/tap.tpl', $data);
 		} else {
 			return $this->load->view('default/template/payment/tap.tpl', $data);
 		}*/
-		return $this->load->view('extension/payment/tap', $data);
+		return $this->load->view('payment/tap', $data);
 	}
 
 	public function callback() {
-		$this->load->language('extension/payment/tap');
+		$this->load->language('payment/tap');
 
 		if (isset($this->request->get['trackid'])) {
 			$order_id = $this->request->get['trackid'];

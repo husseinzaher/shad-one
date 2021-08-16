@@ -1,9 +1,9 @@
 <?php
-class ControllerExtensionPaymentTap extends Controller {
+class ControllerPaymentTap extends Controller {
 	private $error = array();
 
 	public function index() {
-		$this->load->language('extension/payment/tap');
+		$this->load->language('payment/tap');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
@@ -80,10 +80,10 @@ class ControllerExtensionPaymentTap extends Controller {
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('heading_title'),
-			'href' => $this->url->link('extension/payment/tap', 'token=' . $this->session->data['token'], 'SSL')
+			'href' => $this->url->link('payment/tap', 'token=' . $this->session->data['token'], 'SSL')
 		);
 
-		$data['action'] = $this->url->link('extension/payment/tap', 'token=' . $this->session->data['token'], 'SSL');
+		$data['action'] = $this->url->link('payment/tap', 'token=' . $this->session->data['token'], 'SSL');
 
 		$data['cancel'] = $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL');
 
@@ -155,11 +155,11 @@ class ControllerExtensionPaymentTap extends Controller {
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
 
-		$this->response->setOutput($this->load->view('extension/payment/tap.tpl', $data));
+		$this->response->setOutput($this->load->view('payment/tap.tpl', $data));
 	}
 
 	protected function validate() {
-		if (!$this->user->hasPermission('modify', 'extension/payment/tap')) {
+		if (!$this->user->hasPermission('modify', 'payment/tap')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 

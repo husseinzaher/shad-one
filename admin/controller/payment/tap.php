@@ -29,6 +29,7 @@ class ControllerPaymentTap extends Controller {
 		$data['entry_merchantid'] = $this->language->get('entry_merchantid');
 		$data['entry_username'] = $this->language->get('entry_username');
 		$data['entry_password'] = $this->language->get('entry_password');
+		$data['entry_apikey'] = $this->language->get('entry_apikey');
 		$data['entry_test'] = $this->language->get('entry_test');
 		$data['entry_total'] = $this->language->get('entry_total');
 		$data['entry_order_status'] = $this->language->get('entry_order_status');
@@ -58,6 +59,12 @@ class ControllerPaymentTap extends Controller {
 			$data['error_username'] = $this->error['username'];
 		} else {
 			$data['error_username'] = '';
+		}
+
+		if (isset($this->error['apikey'])) {
+			$data['error_apikey'] = $this->error['apikey'];
+		} else {
+			$data['error_apikey'] = '';
 		}
 
 		if (isset($this->error['password'])) {
@@ -91,6 +98,12 @@ class ControllerPaymentTap extends Controller {
 			$data['tap_merchantid'] = $this->request->post['tap_merchantid'];
 		} else {
 			$data['tap_merchantid'] = $this->config->get('tap_merchantid');
+		}
+
+		if (isset($this->request->post['tap_apikey'])) {
+			$data['tap_apikey'] = $this->request->post['tap_apikey'];
+		} else {
+			$data['tap_apikey'] = $this->config->get('tap_apikey');
 		}
 		
 		if (isset($this->request->post['tap_username'])) {
@@ -166,7 +179,10 @@ class ControllerPaymentTap extends Controller {
 		if (!$this->request->post['tap_merchantid']) {
 			$this->error['merchantid'] = $this->language->get('error_merchantid');
 		}
-		
+
+		if (!$this->request->post['tap_apikey']) {
+			$this->error['apikey'] = $this->language->get('error_apikey');
+		}
 		if (!$this->request->post['tap_username']) {
 			$this->error['username'] = $this->language->get('error_username');
 		}

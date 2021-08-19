@@ -1,4 +1,3 @@
-<?php echo "here";?>
 <!--
 <form action="<?php echo $action; ?>" method="get">
   <input type="hidden" name="MEID" value="<?php echo $mid; ?>" />

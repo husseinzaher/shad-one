@@ -1,6 +1,7 @@
 <?php
 class ControllerPaymentTap extends Controller {
 	public function index() {
+		//var_dump($this->config);exit;
 		$data['button_confirm'] = $this->language->get('button_confirm');
 
 		if (!$this->config->get('tap_test')) {
@@ -9,11 +10,11 @@ class ControllerPaymentTap extends Controller {
 		else {
 			$data['action'] = 'http://live.gotapnow.com/webpay.aspx';
 		}
-
+		$this->config->get('tap_test');
 		$this->load->model('checkout/order');
 
 		$order_info = $this->model_checkout_order->getOrder($this->session->data['order_id']);
-
+		
 		$data['meid'] = $this->config->get('tap_merchantid');
 		$data['uname'] = $this->config->get('tap_username');
 		$data['pwd'] = $this->config->get('tap_password');
@@ -30,12 +31,8 @@ class ControllerPaymentTap extends Controller {
 
 		$data['returnurl'] = $this->url->link('payment/tap/callback', 'hashcd=' . md5($order_info['order_id'] . $this->currency->format($order_info['total'], $order_info['currency_code'], $order_info['currency_value'], false) . $order_info['currency_code'] . $this->config->get('tap_password')));
 
-		/*if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/payment/tap.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/payment/tap.tpl', $data);
-		} else {
-			return $this->load->view('default/template/payment/tap.tpl', $data);
-		}*/
-		return $this->load->view('payment/tap', $data);
+
+		return $this->load->view('payment/tap.tpl', $data);
 	}
 
 	public function callback() {
@@ -58,7 +55,8 @@ class ControllerPaymentTap extends Controller {
 			$refid = $this->request->get['ref'];
 			
 			$str = 'x_account_id'.$key.'x_ref'.$refid.'x_resultSUCCESSx_referenceid'.$order_id.'';
-			$hashstring = hash_hmac('sha256', $str, '1tap7');
+			$apikey = $this->config->get('tap_apikey');
+			$hashstring = hash_hmac('sha256', $str, $apikey);
 			$responsehashstring=$this->request->get['hash'];
 				
 			if ($hashstring != $responsehashstring) {

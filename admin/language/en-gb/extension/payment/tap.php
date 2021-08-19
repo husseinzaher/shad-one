@@ -11,7 +11,6 @@ $_['text_tap']						= '<img src="view/image/payment/tap.png" alt="Tap" title="Ta
 // Entry
 $_['entry_merchantid']				= 'Tap Merchant ID';
 $_['entry_username']				= 'Tap Username';
-$_['entry_apikey']					= 'Tap ApiKey';
 $_['entry_password']				= 'Password';
 $_['entry_test']					= 'Test Mode';
 $_['entry_total']					= 'Total';
@@ -28,5 +27,4 @@ $_['help_total']					= 'The checkout total the order must reach before this paym
 $_['error_permission']				= 'Warning: You do not have permission to modify payment Tap!';
 $_['error_username']				= 'Tap Username required!';
 $_['error_password']				= 'Password required!';
-$_['error_apikey']					= 'ApiKey required';
 $_['error_merchantid']				= 'Tap Merchant ID required!';

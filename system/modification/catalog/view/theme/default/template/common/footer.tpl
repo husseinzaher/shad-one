@@ -51,7 +51,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-6 imp-l">
                         <h3> 
                             <?php if ($direction == 'rtl') { ?>
-                               تبعنا على
+                               تابعنا على
                             <?php } else { ?>
                                 FOLLOW US ON
                             <?php } ?>

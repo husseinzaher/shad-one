@@ -148,11 +148,13 @@ margin-top:30px
     padding-right: 0;
     padding-left: 0;
 }
+/***
 .product-page .slick-initialized .slick-slide {
-right: 5px !important;
+    right: 5px !important;
     left: 5px !important;
     top: 5px !important;
 }
+****/
 .mob-cart li{
     
 }
@@ -232,6 +234,7 @@ a.removequickview.red {
     margin: 4px 5px;
 }
 </style>
+
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -248,6 +251,46 @@ a.removequickview.red {
         width:100%;
     }
 </style>
+<?php if ($direction == 'rtl') { ?>
+<style>
+#cart.cart_mob {
+    position: relative;
+}
+#cart.cart_mob #cart img {
+display: none;
+}
+#cart.cart_mob #cart #cartnav{
+display: none;
+}
+#cart.cart_mob #cart #cart-total {
+    z-index: -1;
+    top: 15px !important;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+}
+</style>
+<?php } else { ?>
+<style>
+#cart.cart_mob {
+    position: relative;
+}
+#cart.cart_mob #cart img {
+display: none;
+}
+#cart.cart_mob #cart #cartnav{
+display: none;
+}
+#cart.cart_mob #cart #cart-total {
+    z-index: -1;
+    top: 20px !important;
+    left: 8px;
+    width: 18px;
+    height: 18px;
+}
+</style>
+<?php } ?>
+
 </head>
 <body class="<?php echo $class; ?>">
 <!----
@@ -428,7 +471,8 @@ a.removequickview.red {
 <!-- Starting Mobole Menu -->
 <div class="mobile-menu visible-xs-block ">
     <ul class="mob-cart list-unstyled"><li>
-        <div id="cart">
+        <div id="cart" class="cart_mob">
+<?php echo $cart; ?>
                                     <a class="sh_cart" href="<?php echo $shopping_cart; ?>">
                                         <img src="catalog/view/theme/default/images/i3.png">
                                     </a>

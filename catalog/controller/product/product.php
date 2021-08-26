@@ -13,6 +13,7 @@ class ControllerProductProduct extends Controller {
 		);
 
 		$this->load->model('catalog/category');
+$data['direction'] = $this->language->get('direction');
 
 		if (isset($this->request->get['path'])) {
 			$path = '';

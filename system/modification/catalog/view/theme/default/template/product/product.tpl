@@ -591,6 +591,8 @@ $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	});
 });
 //--></script>
+
+<?php if ($direction == 'rtl') { ?>
 <script type="text/javascript"><!--
 $('#button-cart').on('click', function() {
 	$.ajax({
@@ -644,6 +646,63 @@ $('#button-cart').on('click', function() {
 	});
 });
 //--></script>
+<?php } else { ?>
+<script type="text/javascript"><!--
+$('#button-cart').on('click', function() {
+	$.ajax({
+		url: 'index.php?route=checkout/cart/add',
+		type: 'post',
+		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+		dataType: 'json',
+		beforeSend: function() {
+			$('#button-cart').button('loading');
+		},
+		complete: function() {
+			$('#button-cart').button('reset');
+		},
+		success: function(json) {
+			$('.alert, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+						var string = json['total'];
+						var array = string.split(" ");
+						var array2 = string.split("t");
+						$('#cart > button').html('<img src="catalog/view/theme/default/images/i3.png"><span class="counter" id="cart-total">' + array2[1] + '</span>');
+
+				$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+				$('#cart ul').load('index.php?route=common/cart/info ul li');
+			}
+		}
+	});
+});
+//--></script>
+<?php } ?>
+
 <script type="text/javascript"><!--
 $('.date').datetimepicker({
 	pickTime: false

@@ -290,7 +290,9 @@ display: none;
 }
 </style>
 <?php } ?>
-
+<!----
+<link href="catalog/view/theme/default/tel/intlTelInput.css" rel="stylesheet" type="text/css" />
+---->
 </head>
 <body class="<?php echo $class; ?>">
 <!----

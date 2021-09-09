@@ -258,6 +258,17 @@ $(document).ready(function () {
 <?php } else { ?>
     <script src="catalog/view/javascript/pluginsen.js" type="text/javascript"></script>
 <?php } ?>
+<!----
+<script src="catalog/view/theme/default/tel/intlTelInput-jquery.min.js" type="text/javascript"></script>
+<script src="catalog/view/theme/default/tel/intlTelInput.js" type="text/javascript"></script>
+<script>
+    $("#input-telephone").intlTelInput({
+        preferredCountries: ["sa", "gb"],
+        separateDialCode: true,
+        hiddenInput: "full",
+    });
+</script>
+----->
 <!--
 OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
 Please donate via PayPal to donate@opencart.com

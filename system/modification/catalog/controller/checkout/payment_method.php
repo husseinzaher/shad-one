@@ -49,33 +49,15 @@ class ControllerCheckoutPaymentMethod extends Controller {
 
 			foreach ($results as $result) {
 				if ($this->config->get($result['code'] . '_status')) {
-					
-                //d_opencart_patch.xml 2
-                if(file_exists(DIR_APPLICATION . 'model/extension/payment/' . $result['code'] . '.php')){
-                    $this->load->model('extension/payment/' . $result['code']);
-                    $method = $this->{'model_extension_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
-                } elseif (file_exists(DIR_APPLICATION . 'model/payment/' . $result['code'] . '.php')) {
-                    $this->load->model('payment/' . $result['code']);
-                    $method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
-                }
-            
+					$this->load->model('payment/' . $result['code']);
 
-					////
+					$method = $this->{'model_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
 
 					if ($method) {
-						
-                //d_opencart_patch.xml 3
-                if ($recurring) {
-                    if(file_exists(DIR_APPLICATION . 'model/extension/payment/' . $result['code'] . '.php')){
-                        if (property_exists($this->{'model_extension_payment_' . $result['code']}, 'recurringPayments') && $this->{'model_extension_payment_' . $result['code']}->recurringPayments()) {
-                            $method_data[$result['code']] = $method;
-                        }
-                    } elseif (file_exists(DIR_APPLICATION . 'model/payment/' . $result['code'] . '.php')) {
-                        if (method_exists($this->{'model_payment_' . $result['code']}, 'recurringPayments') && $this->{'model_payment_' . $result['code']}->recurringPayments()) {
-                            $method_data[$result['code']] = $method;
-                        }
-                    }
-            
+						if ($recurring) {
+							if (method_exists($this->{'model_payment_' . $result['code']}, 'recurringPayments') && $this->{'model_payment_' . $result['code']}->recurringPayments()) {
+								$method_data[$result['code']] = $method;
+							}
 						} else {
 							$method_data[$result['code']] = $method;
 						}
